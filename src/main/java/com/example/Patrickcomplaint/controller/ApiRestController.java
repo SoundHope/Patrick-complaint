@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -50,6 +51,12 @@ public class ApiRestController {
     @PostMapping("/complaint")
     ResponseEntity<Complaint> registerComplaint(@RequestBody Complaint newComplaint) {
         return new ResponseEntity<>(complaintService.register(newComplaint), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/complaint")
+    ResponseEntity<List<Complaint>> registerComplaint() {
+        List<Complaint> complaints = complaintService.getAll();
+        return new ResponseEntity<>(complaints, HttpStatus.OK);
     }
 
 

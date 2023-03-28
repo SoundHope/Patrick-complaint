@@ -8,7 +8,6 @@ import com.example.Patrickcomplaint.service.ComplaintService;
 import com.example.Patrickcomplaint.service.ComplaintServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
 
 @Configuration
 public class GeneralConfig {
