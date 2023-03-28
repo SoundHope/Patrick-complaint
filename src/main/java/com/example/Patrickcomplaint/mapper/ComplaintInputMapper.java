@@ -1,6 +1,7 @@
 package com.example.Patrickcomplaint.mapper;
 
-public class ClientInputMapper {
-    public String dni;
-    public String password;
+public class ComplaintInputMapper {
+    public String type;
+    public String detail;
+    public Long client;
 }

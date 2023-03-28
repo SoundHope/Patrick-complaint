@@ -1,2 +1,7 @@
-package com.example.Patrickcomplaint.service;public interface ComplaintService {
+package com.example.Patrickcomplaint.service;
+
+import com.example.Patrickcomplaint.entity.Complaint;
+
+public interface ComplaintService {
+    Complaint register(Complaint newComplaint);
 }

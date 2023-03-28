@@ -27,18 +27,12 @@ public class SecSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf()
-                .disable()
-                .authorizeRequests()
-                .antMatchers("/admin/**")
-                .hasRole("ADMIN")
-                .antMatchers("/anonymous*")
-                .anonymous()
-                .antMatchers("/login*")
-                .permitAll()
-                .anyRequest()
-                .authenticated()
-                .and()
+        http.formLogin()
+                .loginPage("/login.html")
+                .loginProcessingUrl("/perform_login")
+                .defaultSuccessUrl("/homepage.html",true)
+                .failureUrl("/login.html?error=true");
+        return http.build();
     }
 
     @Bean
@@ -46,5 +40,5 @@ public class SecSecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    
+
 }

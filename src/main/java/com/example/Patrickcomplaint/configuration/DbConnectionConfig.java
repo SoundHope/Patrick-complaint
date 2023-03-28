@@ -8,7 +8,7 @@ import org.springframework.context.annotation.PropertySource;
 import javax.sql.DataSource;
 
 @PropertySource("classpath:connection.properties")
-public class GeneralConfig {
+public class DbConnectionConfig {
     @Value("${jdbc.url}")
     private String jdbcUrl;
 
@@ -23,7 +23,7 @@ public class GeneralConfig {
 
     @Bean
     public DataSource dataSource(){
-        DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
+        DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
         dataSourceBuilder.driverClassName(driver);
         dataSourceBuilder.url(jdbcUrl);
         dataSourceBuilder.username(username);
