@@ -24,6 +24,7 @@ public class ApiRestController {
         this.complaintService = complaintService;
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/")
     @ResponseBody
     ResponseEntity<Optional<Client>> get(@RequestParam String dni){
@@ -35,6 +36,7 @@ public class ApiRestController {
         }
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/login")
     ResponseEntity<Optional<Client>> login(@RequestBody String data) throws JSONException {
         JSONObject parsed_data  = new JSONObject(data);
@@ -48,11 +50,13 @@ public class ApiRestController {
         }
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/complaint")
     ResponseEntity<Complaint> registerComplaint(@RequestBody Complaint newComplaint) {
         return new ResponseEntity<>(complaintService.register(newComplaint), HttpStatus.CREATED);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/complaint")
     ResponseEntity<List<Complaint>> registerComplaint() {
         List<Complaint> complaints = complaintService.getAll();
